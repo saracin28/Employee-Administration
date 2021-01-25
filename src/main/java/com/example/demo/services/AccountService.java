@@ -21,8 +21,8 @@ public class AccountService {
         return accountRepository.findById(id);
     }
 
-    public Account getAccountByName(String name){
-        return accountRepository.findByName(name);
+    public Account getAccountByUsername(String name){
+        return accountRepository.findByUsername(name);
     }
 
     public void postAccount(Account account){

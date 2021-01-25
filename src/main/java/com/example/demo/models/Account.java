@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,15 +15,16 @@ import javax.persistence.*;
 @Table(name = "account")
 public class Account {
     @Id
-    @GeneratedValue
-    private int id;
+    @Column(name = "accountId")
+    private int accountId;
 
     @Column(name = "username")
-    private String name;
+    private String username;
 
     @Column(name = "password")
     private String password;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "userId")
+    @OneToOne(fetch = FetchType.LAZY)
     private User user;
 }

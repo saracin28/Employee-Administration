@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,8 +20,8 @@ import java.util.Date;
 @Table(name = "task")
 public class Task {
     @Id
-    @Column(name = "id")
-    private int id;
+    @Column(name = "taskId")
+    private int taskId;
 
     @Column(name = "employee")
     private String employee;
@@ -37,9 +38,7 @@ public class Task {
     @Column(name = "status")
     private String status;
 
-    @ToString.Exclude
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId")
     private User user;
 }

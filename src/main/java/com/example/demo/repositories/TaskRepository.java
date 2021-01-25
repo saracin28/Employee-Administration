@@ -14,6 +14,6 @@ public interface TaskRepository extends CrudRepository<Task, Integer> {
     @Query("Select task from Task task where task.name=?1")
     Task findByName(String name);
 
-    @Query("Select task from Task task where task.id=?1")
+    @Query("Select task from Task task where task.taskId=?1")
     Task findById(int id);
 }

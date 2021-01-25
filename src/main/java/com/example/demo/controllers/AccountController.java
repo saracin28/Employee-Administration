@@ -21,12 +21,12 @@ public class AccountController {
     }
 
     @RequestMapping( method = RequestMethod.GET, params = {"name"})
-    public Account getAccountByName(@RequestParam String name) {
-        return accountService.getAccountByName(name);
+    public Account getAccountByUsername(@RequestParam String name) {
+        return accountService.getAccountByUsername(name);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void postUser(@RequestBody Account account) {
+    public void postAccount(@RequestBody Account account) {
         accountService.postAccount(account);
     }
 
